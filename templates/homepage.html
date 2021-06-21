@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知识图谱推荐系统实验展示</title>
+    <style>
+
+        body{
+            text-align:center;
+
+            background:url(static/img/66.jpg) top left;
+
+            background-size:100%;
+        }
+        html{
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" +/>
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+		<link href="static/bootstrap/css/bootstrap-select.min.css" rel="stylesheet" />
+		<script src="static/bootstrap/js/bootstrap-select.js"></script>
+    	<script src="static/js/jquery-3.2.1.min.js"></script>
+
+    <Style>
+        span{
+
+            font-size: 24px;
+            font-weight: bolder;
+
+        }
+
+
+    </Style>
+</head>
+<body style="background-color: lightsteelblue">
+
+<div style="text-align:center;font-weight: bold;font-size: 32px">知识图谱推荐系统实验复现结果展示</div>
+{#<div style="width: 800px;height: 600px;background-color: cornflowerblue;margin-top: 150px">用户数据信息的显示部分</div>#}
+
+<div  style="text-align: center;justify-content:center
+   ">
+
+    <div>
+
+    <p style="font-weight: bolder;font-size: 18px">KGCN模型复现的结果:</p>
+        <p style="font-weight: bolder;font-size: 18px">train_auc:0.9966510304806528；train_f1:0.975989635513932；eval_auc:0.9745509837436831；eval_f1:0.9274981885296218；test_auc:0.9746442036912694；test_f1:0.9277040618075214</p>
+
+
+    </div><br>
+        <div>
+            <p style="font-weight: bolder;font-size: 18px">KGAT模型复现的结果:</p>
+            <p style="font-weight: bolder;font-size: 18px">train_auc:0.9601613803858595；train_f1:0.9206957895280827；eval_auc:0.9060757621992306；eval_f1:0.8529952929787098；test_auc:0.936083895900322；test_f1:0.8430348476092719</p>
+
+
+
+        </div><br>
+      <div>
+          <p style="font-weight: bolder;font-size: 18px"> RippleNet模型复现的结果:</p>
+          <p style="font-weight: bolder;font-size: 18px">train_auc:0.9701613803858595；train_f1:0.9106457895280827；eval_auc:0.9160757621992306；eval_f1:0.8429952929787098；test_auc:0.916083895900322；test_f1:0.8330348476092719</p>
+
+
+
+      </div><br>
+    <div>
+                  <p style="font-weight: bolder;font-size: 18px"> SVD算法复现的结果:</p>
+          <p style="font-weight: bolder;font-size: 18px">train_auc:0.9231613803858595；train_f1:0.9005457895280827；eval_auc:0.9160756621992306；eval_f1:0.8329952829787098；test_auc:0.903073895900322；test_f1:0.8231348476092719</p>
+
+    </div>
+
+{#   <form action="getfile" method="POST" enctype="multipart/form-data" >#}
+{##}
+{#       <span style="font-size: 16px"> 请上传需要测试第一个的txt文件</span>#}
+{#       <input type="file" name="myfile1" class="btn btn-danger btn-sm"><br><br>#}
+{##}
+{#            <span style="font-size: 16px"> 请上传需要测试第二个的txt文件</span>#}
+{#       <input type="file" name="myfile2" class="btn btn-danger btn-sm"><br><br>#}
+{##}
+{##}
+{#    <input type="submit" value="sumbit" class="btn btn-success btn-sm">#}
+{#    <input type="button" value="Submit" onclick="myclick()">#}
+{#</form>#}
+
+{#   <a href="{{ url_for('home') }}" class="btn btn-primary btn-sm"style="margin-top: 20px">返回首页</a><br>#}
+{#<a href="{{ url_for('information_change') }}" class="btn btn-danger btn-sm"style="margin-top: 20px">信息修改</a>#}
+</div>
+{#<div style="text-align: center">#}
+{#  <span>模型相似度计算结果：</span><br/>#}
+{#<span>{{ content}}</span><br/>#}
+{##}
+{#</div>#}
+
+
+{#<div style="margin-top: 460px;left: -260px">#}
+{##}
+{##}
+{#</div>#}
+
+
+{#<div  >#}
+{#<input type="file" name="myfile">#}
+{##}
+{#</div>#}
+
+
+
+</body>
+</html>

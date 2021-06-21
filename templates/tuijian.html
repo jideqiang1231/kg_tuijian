@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影推荐系统</title>
+    <style>
+
+        body{
+            text-align:center;
+
+            background:url(static/img/66.jpg) top left;
+
+            background-size:100%;
+        }
+        html{
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+		<link href="static/bootstrap/css/bootstrap-select.min.css" rel="stylesheet" />
+	<script src="static/bootstrap/js/bootstrap-select.js"></script>
+    	<script src="static/js/jquery-3.2.1.min.js"></script>
+
+    <Style>
+        span{
+
+            font-size: 24px;
+            font-weight: bolder;
+
+        }
+
+
+    </Style>
+</head>
+<body style="background-color: lightsteelblue">
+
+
+<div style="text-align:center;font-weight: bold;font-size: 28px"><marquee direction="left" height="50" width="360px">电影推荐系统</marquee></div>
+<!--{#<div style="width: 800px;height: 600px;background-color: cornflowerblue;margin-top: 150px">用户数据信息的显示部分</div>#}-->
+
+<!--<div  style="display: flex;width: 100%;text-align: center;justify-content:center;-->
+<!--    align-items:center;">-->
+
+<!--   <form action="getfile" method="POST" enctype="multipart/form-data" >-->
+
+<!--       <span style="font-size: 16px"> 请上传需要展示的txt文件</span>-->
+<!--       <input type="file" name="myfile1" class="btn btn-danger btn-sm"><br><br>-->
+
+<!--{#            <span style="font-size: 16px"> 请上传需要测试第二个的txt文件</span>#}-->
+<!--{#       <input type="file" name="myfile2" class="btn btn-danger btn-sm"><br><br>#}-->
+<!--{#       <input type="text" name="model"placeholder="请输入采取模型(1-TFIDF,2-Simhash)">#}-->
+
+<!--    <input type="submit" value="sumbit" class="btn btn-success btn-sm">-->
+<!--{#    <input type="button" value="Submit" onclick="myclick()">#}-->
+<!--</form>-->
+
+<!--{#   <a href="{{ url_for('home') }}" class="btn btn-primary btn-sm"style="margin-top: 20px">返回首页</a><br>#}-->
+<!--{#<a href="{{ url_for('information_change') }}" class="btn btn-danger btn-sm"style="margin-top: 20px">信息修改</a>#}-->
+<!--</div>-->
+
+<div style="text-align: center">
+    <textarea placeholder="请输入用户的id,找到与目标用户兴趣相似的10个用户，为其推荐10部电影" rows="5" cols="30" id="txt"></textarea><br><br>
+    <button class="btn btn-success btn-lg" onclick="ajax_sumbit()">提交文本</button>
+
+</div>
+<div style="text-align: center">
+    <h3>根据用户的id推荐的前五个电影是:</h3>
+{#      <div id="LoveID"></div>#}
+
+    <div id="envent_get"style="font-weight: bold;font-size: 16px"></div>
+
+  <div id="LoveID"></div>
+</div>
+
+
+</body>
+</html>
+<script>
+    function ajax_sumbit(){
+        var textvalue=$('#txt').val();
+
+          $.ajax({
+            url:'ajax',
+            type:'GET',
+            data:{content:textvalue},
+            contentType:'application/json',
+            success:function (response) {
+                console.log(response['event_get']);
+                alert(response['event_get']);
+                {#document.write(response['event']);#}
+                {#  console.log(response);#}
+                  var thisEle = $("#envent_get").css("font-size");
+                    //parseFloat的第二个参数表示转化的进制，10就表示转为10进制
+                    var textFontSize = parseFloat(thisEle , 10);
+                    //javascript自带方法
+                    var unit = thisEle.slice(-2); //获取单位
+
+                if (response['message']=='ok'){
+                    result=response['event_get'];
+                    real_result=result.split('；');
+                    //遍历列表写入
+                    var loveStr = "";
+     for (let i = 0; i < real_result.length; i++) {
+        loveStr += '<div style="font-weight: bold;font-size: 16px">' + real_result[i] + '</div>';
+    };
+                    console.log(real_result);
+                      document.getElementById("LoveID").innerHTML = loveStr;
+
+                 // document.getElementById("event_get").innerHTML=loveStr;
+                        $("#triples_get").html(loveStr);
+                         $("#envent_get").css('font-size',textFontSize + unit);
+                          $("#triples_get").css('font-size',textFontSize + unit);
+                    console.log(response['url']);
+                    // window.location.replace(response['url'])
+                }
+                else{
+
+                      $("#envent_get").html(response['event_get']);//前端赋值
+                        $("#triples_get").html(response['triples_get']);
+                    // window.load()
+
+                }
+
+
+
+
+            }
+        })
+
+
+
+
+    }
+
+
+</script>

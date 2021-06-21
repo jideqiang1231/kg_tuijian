@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>细粒度文本实体识别</title>
+    <style>
+
+        body{
+            text-align:center;
+
+            background:url(static/img/111.jpg) top left;
+
+            background-size:100%;
+        }
+        html{
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+		<script src="static/bootstrap/js/bootstrap.min.js"></script>
+		<link href="static/bootstrap/css/bootstrap-select.min.css" rel="stylesheet" />
+		<script src="static/bootstrap/js/bootstrap-select.js"></script>
+    	<script src="static/js/jquery-3.2.1.min.js"></script>
+
+    <Style>
+        span{
+
+            font-size: 24px;
+            font-weight: bolder;
+
+        }
+        p{
+            font-weight: bolder;
+            font-size: 24px;
+        }
+
+
+    </Style>
+</head>
+<body style="background-color: lightsteelblue">
+
+<div style="text-align:center;font-weight: bold;font-size: 32px">细粒度文本识别</div>
+
+
+<div  style="display: flex;width: 100%;text-align: center;justify-content:center;
+    align-items:center;">
+    <div style="text-align: center">
+
+<span>{{ content}}</span><br/>
+        <div style="text-align: center;">
+
+              <div style="text-align: justify;width: 500px;height: 300px;border: solid whitesmoke;font-size: 24px;font-weight: bolder;overflow: hidden;float: left"><h2>文件1的实体主要有:</h2>{{text1  }}</div>
+              <div style="text-align: justify;width: 500px;height: 300px;border: solid whitesmoke;margin-left:80px;font-size: 24px;font-weight: bolder;overflow: hidden;float: right"><h2>文件2的实体主要有:</h2>{{text2  }}</div>
+
+
+
+        </div>
+
+        <div>
+
+                          <div style="text-align: justify;width: 500px;height: 300px;border: solid whitesmoke;font-size: 24px;font-weight: bolder;overflow: hidden;float: left"><h2>公共的实体主要有:</h2>{{text3  }}</div>
+
+                                      <div style="text-align: justify;width: 500px;height: 300px;border: solid whitesmoke;font-size: 24px;font-weight: bolder;overflow: hidden;float: right;"><h2>公共的实体种类名称主要有:</h2>{{text4  }}</div>
+
+        </div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
